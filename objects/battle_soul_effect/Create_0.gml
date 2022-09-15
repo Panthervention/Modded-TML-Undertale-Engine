@@ -1,0 +1,9 @@
+depth = DEPTH_BATTLE.BULLET_OUTSIDE_HIGH
+audio_play_sound(snd_ding, 1, false)
+image_xscale = 1
+image_yscale = 1
+image_speed = 0
+dir = DIR.DOWN
+soul = spr_battle_soul_red
+xx = battle_soul.x
+yy = battle_soul.y

@@ -1,0 +1,10 @@
+depth=DEPTH_BATTLE.UI;
+x=30;
+y=401;
+hp=Player_GetHp();
+hp_max=Player_GetHpMax();
+kr=0;
+ca=0;
+RGB=make_color_hsv(ca % 255, 255, 255);
+difficulty=Flag_Get(FLAG_TYPE.DYNAMIC,FLAG_DYNAMIC.DIFFICULTY);
+krr=0;

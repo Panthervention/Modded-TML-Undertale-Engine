@@ -1,0 +1,87 @@
+if _timer = 1
+{
+    battle_enemy_sans._head_image = 0
+	battle_enemy_sans.action = 0
+	battle_enemy_sans._body_image = 0
+	battle_soul.moveable = false
+	battle_soul.y = 270
+	battle_soul.x = 320
+	battle_soul.visible = true
+}
+
+if _timer = 5
+{
+	platform_1 = MakePlatform(320,390,48,0,0,1,0,0,0)
+	Anim_Create(platform_1,"y",ANIM_TWEEN.SINE,ANIM_EASE.OUT,390,-60,60)
+}
+
+if _timer = 90
+{
+	MakeBoneV(490,310,140,-5,0,4,0,0,1)
+	MakeBoneV(150,310,140,5,0,4,0,0,1)
+}
+
+if _timer = 125
+{
+	battle_enemy_sans._body_image = 1
+	battle_soul.moveable = true
+}
+
+if _timer >= 90 and _timer%3=0 and _repeat = true
+{
+	MakeBoneTop(150,10,4,0,0,0,1)
+	MakeBoneBottom(490,10,-4,0,0,0,1)
+}
+
+if _timer = 150
+	battle_enemy_sans._body_image = 0
+
+if _timer >= 150 and _repeat = true
+{
+	platform_x += 0.01
+	platform_1.x = 320 + (sin(platform_x)*135)
+	if global.difficulty != 1
+	{
+		platform_y += 0.1
+		platform_1.y = 320 + (sin(platform_y)*8)
+	}
+}
+
+if _timer >= 150 and _timer%25=0 and _repeat = true
+    MakeBoneV(320,400,20,0,-2.5,0,0,0,1)
+
+if _timer >= 500 and _timer%35=0 and _repeat = true
+    MakeBoneV(250,240,20,0,2,0,0,0,1)
+
+if _timer >= 840 and _timer%20=0 and _repeat = true
+    MakeBoneV(390,240,20,0,4,0,0,0,1)
+
+if _timer >= 1220 and _timer%10=0 and _repeat = true
+{
+    MakeBoneV(170,400,20,0,-4,0,0,0,1)
+	MakeBoneV(470,400,20,0,-4,0,0,0,1)
+}
+
+if _timer >= 1620 and _timer%20=0 and _repeat = true and global.difficulty != 1
+{
+    MakeBoneV(210,400,20,0,-3,0,0,0,1)
+	MakeBoneV(430,240,20,0,3,0,0,0,1)
+}
+
+if _timer = 2000
+{
+	_repeat = false
+	audio_play_sound(snd_ding,0,false)
+	Anim_Create(platform_1,"y",ANIM_TWEEN.SINE,ANIM_EASE.OUT,platform_1.y,-platform_1.y + 400,120)
+	Anim_Create(platform_1,"x",ANIM_TWEEN.QUAD,ANIM_EASE.OUT,platform_1.x,-platform_1.x + 320,120)
+}
+
+if _timer = 2140
+	Battle_SetBoardSizeCubic(65,65,65,65,60)
+
+
+if _timer = 2220
+{
+	Battle_EndTurn()
+	camera.angle = 0
+}

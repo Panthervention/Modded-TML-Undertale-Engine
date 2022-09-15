@@ -1,0 +1,14 @@
+duration = 10
+x1 = 0
+y1 = 0
+x2 = 0
+y2 = 0
+x3 = 0
+y3 = 0
+xscale = 0
+yscale = 0
+alpha = 0
+color = c_red
+alarm[0] = 5
+mode=0
+depth = DEPTH_BATTLE.BULLET
